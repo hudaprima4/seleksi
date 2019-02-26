@@ -1,0 +1,17 @@
+Tabel yang masih kosong:
+
+master_bank
+master_jenis_pajak
+
+
+
+
+Tambahan function
+epu_cetak_dth.
+epu_cetak_rth
+
+
+
+tambahan tabel:
+bud_organisasi
+log dari wande

@@ -1,0 +1,132 @@
+===============================================================================================================================================
+					                        CATATAN UMUM TESTING APLIKASI E-PENATAUSAHAAN
+===============================================================================================================================================
+
+1. Tanggal :
+        - ketika input tanggal di e-Penatausahaan, dibatasi untuk kalendernya, maksimala adalah tanggal hari ini,
+	      terkecuali tanggal yang dibuat untuk perencanaan (merencanakan sesuatu)
+		- Tanggal di tabel textalign rata tengah
+
+2. Revisi Daftar Pegawai :
+        - Ganti field kr_organisasi_org_key menjadi parent_id
+		  Tambahkan field kr_organisasi_org_key
+		  (Berfungsi untuk menginput Master rekanan, master penerima dll...)
+
+3. Data master batasannya adalah per Parent ID bukan per unit (per 1 organisasi).
+
+4. Sinkronkan data Unit di SIMPEG dan GRMS untuk mengetahui bahwa nip A berada di Unit mana.
+
+5. Terbilang di semua cetak, apa bila Rp 0,00  Maka terbilang di tulis Nol Rupiah.
+
+6. Semua "Catatan Verifikasi" terdeteksi adanya BUG di teks editor, masih bisa otak atik script lewat teks editor, untuk itu harap 
+   periksa kembali semua teks editor.
+
+7. SEMUA URAIAN MASIH BISA DI XXS INJECTION.
+
+8. Default di Daftar, menampilkan data adalah dropdown tahunan untuk pertama kali di load.
+
+9. Grafik di Daftar ditambahkan keterangan pada jumlahnya, misal 23 data dari total semua unit.
+
+10. Detail kelengkapan dan detail rincian, diseragamkan menggunakan Pop-Up semuanya.
+
+11. Semua popups memakai button Tutup dengan icon fa-close.
+
+12. Form tolak buttonnya Tolak, background merah, fa-save dan button kembali.
+
+13. Form setujui buttonnya Setujui, background hijau, fa-save dan button kembali.
+
+14. Background status ditolak warna = warna button tolak (merah / bukan orange).
+
+15. Background status final warna = warna button setujui (hijau).
+
+16. KONDISI TERBARU SPM (BERLAKU UNTUK SEMUA SPM) :
+	1. - Di menu penolakan BUDP apa bila penolakan dilakukan karena memilih radio button SPP, maka yang terjadi adalah status SPM berubah
+	     menjadi "PERSIAPAN" kemudian status SPP-nya menjadi "DITOLAK", namun di daftar SPM-PPK yang persiapan tersebut hanya muncul tombol 
+	     lihat atau detail saja, untuk tombil edit, hapus dan kirim ke BUD hilang.
+	   
+	   - Kemudian langkah selanjutnya adalah Ajukan Ulang SPP yang di tolak oleh user BP/BPP, lalu di daftar SPP untuk BP/BPP status 
+	     SPP berubah menjadi "DRAF" namun hilangkan tombol Hapus nya apabila SPP draf tersebut sudah memppunyai SPM yang sudah ditolak
+	     sebelumnya.
+
+	   - Apabila SPP dibuat pertamakali dan statusnya Draf, namun belum memiliki SPM dari data SPP tersebut, maka tombol Hapusnya muncul
+	     pada saat SPP status Draf .
+	   
+	   - Inti perbaikannya adalah sembunyikan tombol edit, hapus, dan kirim ke BUD untuk SPM yang ditolah karena kesalahan ada di SPP
+	     dan sembunyikan tombol Hapus di daftar SPP draf ketika SPP tersebut terdeteksi sudah punya SPM yang ditolak sebelumnya.
+	   
+	2. - Di menu penolakan BUDP apa bila penolakan dilakukan karena memilih radio button SPM, maka yang terjadi adalah status SPM berubah
+	     menjadi "DITOLAK" kemudian langkah selanjutnya adalah PPK mengajukan ulang si SPM yang telah ditolak oleh BUDP tersebut sehingga
+	     statatusnya menjadi persiapan kembali, allu memperbaiki kesalahan data di SPM tersebut kemudian dijadikan Draf kembali untuk bisa di 
+	     setujui ileh BUDP lagi.
+	   
+	3. - Untuk SPM baik yang ditolak karena salah SPP ataupun Salah SPM, ketika pas di SPM nya status persiapan kemudian di edit, maka
+	     tidak boleh ganti SPP.
+
+17. Ditemukan Error saat input Penerima:
+       - Jika autosugest diisi, kemudian melengkapi data, dan NIP diganti (Ctrl+V data lain) tanpa diklik supaya autoload yang lain 
+	     tidak berganti.
+       - No. HP +62 dibiarkan saja.
+       - Klik Simpan, bisa tersimpan.
+		
+18. Untuk semua modul, jika datanya kosong jangan sampai tampil errornya.
+
+19. Untuk pas edit dan ajukan ulang baik di SPM atau di SP2D, tombol pilih SPP/SPM diganti menjadi Lihat SPP/SPM, kemudian jika 
+    edit SPM, maka spp nya tidak bisa diganti, hanya menampilkan spp itu saja, jika edit SP2D, maka spm nya tidak bisa diganti, 
+	hanya menampilkan spm itu saja.
+	
+20. Setiap data rupiah, baik saat tambah, edit maupun detail, textfield menggunakan format [Rp] 1.000.000 [,00].
+
+21. Cek background status waktu sorting statusnya, biasanya berganti warna putih (Bagian Umar)
+        - Background Status Draf, button Cetak Draf samakan dengan background Chart. #f0ad4e
+            * Contoh yang salah di SKP-D, background Status "#f8c556", harusnya "#f0ad4e".
+        - Status Persiapan  : #dcdcdc (class: persiapan)
+        - Status Draf       : #f0ad4e (class: draf)
+        - Status Final      : #449d44 (class: final)
+        - Status Ditolak    : #d43f3a (class: ditolak)
+        - Sudah LPJ         : #5bc0de ()
+
+22. Untuk SP2D, pencairan hanya di unit yang diampu. Jika unit tidak diampu user BP tersebut, button Cairkannya dihidden / tidak ditampilkan saja, 
+	sedangkan yang diampu ditampilkan.
+	
+23. Tombol-Tombol:
+	- kembali pakai icon <i class="fa fa-back"></i> (bg-default)
+	- lihat pakai icon <i class="fa fa-eye"></i> (bg-info)
+	- simpan pakai icon <i class="fa fa-save"></i> (bg-success)
+	- cetak
+		* jika hanya ada 1 cetak di halaman itu pakai : bg-warning
+		* jika ada 2 cetak, misal draf sama final :
+			1) draf pakai (bg-default)
+			2) final pakai (bg-warning)
+		* jika ada 3 cetak, misal draf, final, dan sptb :
+			1) draf pakai (bg-default)
+			2) final pakai (bg-warning)
+			3) sptb pakai (bg-primary)
+	- export excel icon <i class"fa fa-file-excel-o"></i> (bg-success)
+
+24. Dropdown
+    a. Unit:  #label bukan pilih unit tapi "Unit" saja
+        - Semua Unit
+        - Unit A
+        - Unit B
+        - Dst.
+    b. Status #label "Status"
+        - Semua Status
+        - Draf
+        - Ditolak
+        - Final
+    c. Bulan #label "Bulan"
+        - Tahunan
+        - Januari, ... , Desember
+	d. Program #label Program
+		- Semua Program <bukan pilih program>
+		- Program 1
+		- Program 2
+	e. Kegiatan #label Kegiatan
+		- Semua Program <bukan pilih program>
+		- Kegiatan 1
+		- Kegiatan 2
+		
+25. Hapus komen / consoloe log / echo
+	- Hapus link dengan dua dash "/" (site_url)
+
+26. Standar penulisan nominal yang defisit atau minus memakai kurung, eg: (-1.000.000)

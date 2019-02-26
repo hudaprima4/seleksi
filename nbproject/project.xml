@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.php.project</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/php-project/1">
+            <name>epenv1</name>
+        </data>
+        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>ISI</word>
+            <word>KELENGKAPAN</word>
+            <word>Kredit</word>
+            <word>LPJ</word>
+            <word>sebesar</word>
+            <word>SKPD</word>
+            <word>TENGAH</word>
+            <word>untuk</word>
+        </spellchecker-wordlist>
+    </configuration>
+</project>

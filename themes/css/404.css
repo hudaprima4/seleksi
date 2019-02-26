@@ -1,0 +1,153 @@
+body{
+    background:#5bc0de;
+    overflow-x:hidden;
+
+}
+textarea:focus, input[type="text"]:focus,.form-control:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {  
+    border-color: rgba(239, 106, 138, 0.8);
+    -webkit-border-color: rgba(239, 106, 138, 0.8);
+    box-shadow:none;
+    outline: 0 none;
+}
+
+
+
+.stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: 900px;
+    height: 100%;
+    overflow: hidden;
+}
+.far-clouds {
+    background: transparent url(../images/far-clouds.png) 305px 102px repeat-x;
+}
+.near-clouds {
+    background: transparent url(../images/near-clouds.png) 305px 162px repeat-x;
+}
+
+.balloon{
+    font-family: 'Ubuntu', sans-serif;
+    text-align:center;
+    color:#fff;
+}
+
+.balloon h2{
+    font-size:32px;
+    text-transform:uppercase;
+    font-weight:bold;
+    margin-top:30px;
+    letter-spacing: -2px;	
+}
+
+.balloon h3{
+    font-size:20px;
+    text-transform:uppercase;
+    line-height:0px;	
+}
+
+.balloon img{
+    width:230px;
+    margin:20px 0px;
+    -webkit-animation-name: Floatingx;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;		
+}
+
+
+
+@-webkit-keyframes Floatingx{
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 15px);}
+    to {-webkit-transform: translate(-0px, -0px);    }    
+}
+
+
+.balloon h4{
+    font-size:18px;
+    font-weight: 100;
+}
+
+.balloon .input-group{
+    width: 300px;
+    margin:0px auto;
+}
+
+.balloon .form-control{
+    width: 260px!important;
+    border: none;
+}
+
+.balloon .btn, .balloon .btn-default{
+    border: none;
+    line-height: 22px;
+    padding: 6px 13px;
+    background: #d13b49;
+    color: #fff;
+    margin-left: 0px!important;
+}
+
+.balloon .btn:hover{
+    background: #ed7275;
+
+}
+
+.social-icons{
+    color:#fff;
+    font-size:36px;
+    text-align:center;
+    margin-top:10px;
+}
+
+.social-icons a{
+    color:#d13b49;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;	
+}
+
+.social-icons a:hover{
+    color:#ed7275;
+}
+
+.copyrights p{
+    font-family: 'Ubuntu', sans-serif;
+    text-align:center;
+    color:#fff;
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 600px) {	
+
+    .sep {
+        margin: 20px auto 0px auto; 
+        width: 300px;
+    }
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 500px) {	
+
+    .keyboard img{
+        width:300px;
+    }
+
+}
